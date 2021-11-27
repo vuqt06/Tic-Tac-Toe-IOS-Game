@@ -8,23 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		5222CE1F2740891C00E0516C /* Tic_Tac_ToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222CE1E2740891C00E0516C /* Tic_Tac_ToeApp.swift */; };
-		5222CE212740891C00E0516C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222CE202740891C00E0516C /* ContentView.swift */; };
+		5222CE212740891C00E0516C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222CE202740891C00E0516C /* GameView.swift */; };
 		5222CE232740891E00E0516C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5222CE222740891E00E0516C /* Assets.xcassets */; };
 		5222CE262740891E00E0516C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5222CE252740891E00E0516C /* Preview Assets.xcassets */; };
 		5222CE2D274092E200E0516C /* PermanentMarker.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5222CE2C274092E200E0516C /* PermanentMarker.ttf */; };
 		5222CE312740974900E0516C /* asphyxiate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5222CE302740974900E0516C /* asphyxiate.ttf */; };
+		5260D0DF2752880D00B31EAD /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260D0DE2752880D00B31EAD /* GameViewModel.swift */; };
 		52D683E5275085BB00A34FBB /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D683E4275085BB00A34FBB /* Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5222CE1B2740891C00E0516C /* Tic_Tac_Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tic_Tac_Toe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5222CE1E2740891C00E0516C /* Tic_Tac_ToeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeApp.swift; sourceTree = "<group>"; };
-		5222CE202740891C00E0516C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5222CE202740891C00E0516C /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		5222CE222740891E00E0516C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5222CE252740891E00E0516C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5222CE2C274092E200E0516C /* PermanentMarker.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PermanentMarker.ttf; sourceTree = "<group>"; };
 		5222CE302740974900E0516C /* asphyxiate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = asphyxiate.ttf; sourceTree = "<group>"; };
 		525FDE2F2740A5D700D7D7C4 /* Tic-Tac-Toe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Tic-Tac-Toe-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5260D0DE2752880D00B31EAD /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		52D683E4275085BB00A34FBB /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,13 +60,14 @@
 		5222CE1D2740891C00E0516C /* Tic_Tac_Toe */ = {
 			isa = PBXGroup;
 			children = (
+				5222CE202740891C00E0516C /* GameView.swift */,
+				5260D0DE2752880D00B31EAD /* GameViewModel.swift */,
+				52D683E4275085BB00A34FBB /* Alerts.swift */,
 				525FDE2F2740A5D700D7D7C4 /* Tic-Tac-Toe-Info.plist */,
 				5222CE2F274095A900E0516C /* Fonts */,
 				5222CE1E2740891C00E0516C /* Tic_Tac_ToeApp.swift */,
-				5222CE202740891C00E0516C /* ContentView.swift */,
 				5222CE222740891E00E0516C /* Assets.xcassets */,
 				5222CE242740891E00E0516C /* Preview Content */,
-				52D683E4275085BB00A34FBB /* Alerts.swift */,
 			);
 			path = Tic_Tac_Toe;
 			sourceTree = "<group>";
@@ -158,7 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5222CE212740891C00E0516C /* ContentView.swift in Sources */,
+				5260D0DF2752880D00B31EAD /* GameViewModel.swift in Sources */,
+				5222CE212740891C00E0516C /* GameView.swift in Sources */,
 				52D683E5275085BB00A34FBB /* Alerts.swift in Sources */,
 				5222CE1F2740891C00E0516C /* Tic_Tac_ToeApp.swift in Sources */,
 			);
