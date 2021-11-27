@@ -87,6 +87,41 @@ struct ContentView: View {
     }
     
     func computerMovePosition(in moves:[Move?]) -> Int {
+        
+        // If AI can win, then win
+        let winStraight:Set<Set<Int>> = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+        let computerMoves = moves.compactMap { $0 }.filter {$0.player == .computer}
+        
+        let computerPositions = Set(computerMoves.map { $0.boardIndex })
+        for straight in winStraight {
+            let winPositions = straight.subtracting(computerPositions)
+            if (winPositions.count == 1) {
+                if (!isOccupied(in: moves, forIndex: winPositions.first!)) {
+                    return winPositions.first!
+                }
+            }
+        }
+        
+        // If AI can't win, then block player
+        let humanMoves = moves.compactMap { $0 }.filter {$0.player == .human}
+        
+        let humanPositions = Set(humanMoves.map { $0.boardIndex })
+        for straight in winStraight {
+            let winPositions = straight.subtracting(humanPositions)
+            if (winPositions.count == 1) {
+                if (!isOccupied(in: moves, forIndex: winPositions.first!)) {
+                    return winPositions.first!
+                }
+            }
+        }
+        
+        // If AI can't block or win, take the middle square
+        let centerSquare = 4
+        if (!isOccupied(in: moves, forIndex: centerSquare)) {
+            return centerSquare
+        }
+        
+        // If AI can't take middle square, take random available square
         var position = Int.random(in: 0..<9)
         while (isOccupied(in: moves, forIndex: position)) {
             position = Int.random(in: 0..<9)
