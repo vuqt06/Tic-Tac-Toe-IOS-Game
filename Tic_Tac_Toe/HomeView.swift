@@ -24,11 +24,25 @@ struct HomeView: View {
                 VStack {
                     Spacer()
                     Text("Tic Tac Toe")
-                        .font(Font.custom("asphyxiate", size: 30)).foregroundColor(.black)
+                        .font(Font.custom("PermanentMarker", size: 30)).foregroundColor(.black)
                     Spacer()
-                    
+                    HStack(spacing: 10) {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                        Image(systemName: "circle")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                        Image(systemName: "circle")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                    Spacer()
                     NavigationLink {
-                        GameView()
+                        ModesView()
                     } label: {
                         ZStack {
                             Rectangle()
@@ -37,7 +51,7 @@ struct HomeView: View {
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
                             
-                            Text("Start")
+                            Text("Play")
                                 .accentColor(Color.yellow)
                         }
                     }

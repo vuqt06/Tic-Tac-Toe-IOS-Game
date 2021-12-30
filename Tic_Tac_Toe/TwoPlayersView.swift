@@ -1,22 +1,21 @@
 //
-//  GameView.swift
+//  2PlayersView.swift
 //  Tic_Tac_Toe
 //
-//  Created by Vu Trinh on 11/13/21.
+//  Created by Vu Trinh on 12/30/21.
 //
 
 import SwiftUI
 
-struct GameView: View {
+struct TwoPlayersView: View {
     @StateObject private var viewModel = GameViewModel()
-    
 
     var body: some View {
         GeometryReader {
             geo in
             VStack {
                 Spacer()
-                Text("Hard Mode").font(Font.custom("asphyxiate", size: 30)).foregroundColor(.yellow)
+                Text("2 Players Mode").font(Font.custom("asphyxiate", size: 30)).foregroundColor(.yellow)
                     
                 Spacer()
                 LazyVGrid(columns: viewModel.columns, spacing: 8) {
@@ -28,7 +27,7 @@ struct GameView: View {
                             PlayerIndicatorView(systemImageName: viewModel.moves[index]?.indicator ?? "")
                         }
                         .onTapGesture {
-                            viewModel.processMove(in: index)
+                            viewModel.processMove2Players(in: index)
                         }
                     }
                 }.padding([.horizontal], 8)
@@ -46,40 +45,9 @@ struct GameView: View {
     
 }
 
-enum Player {
-    case human, computer
-}
-
-struct Move {
-    let player:Player
-    let boardIndex:Int
-    var indicator: String {
-        return player == .human ? "xmark" : "circle"
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct TwoPlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        TwoPlayersView()
     }
 }
 
-struct CircleView: View {
-    var proxy:GeometryProxy
-    var body: some View {
-        Circle()
-            .foregroundColor(.yellow)
-            .frame(width: proxy.size.width/3 - 10, height: proxy.size.height/5 - 15)
-            .cornerRadius(5)
-    }
-}
-
-struct PlayerIndicatorView: View {
-    var systemImageName:String
-    var body: some View {
-        Image(systemName: systemImageName)
-            .resizable()
-            .frame(width: 40, height: 40)
-            .foregroundColor(.black)
-    }
-}

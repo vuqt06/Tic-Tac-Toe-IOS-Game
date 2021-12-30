@@ -1,13 +1,13 @@
 //
-//  GameView.swift
+//  MediumGameView.swift
 //  Tic_Tac_Toe
 //
-//  Created by Vu Trinh on 11/13/21.
+//  Created by Vu Trinh on 12/30/21.
 //
 
 import SwiftUI
 
-struct GameView: View {
+struct MediumGameView: View {
     @StateObject private var viewModel = GameViewModel()
     
 
@@ -16,7 +16,7 @@ struct GameView: View {
             geo in
             VStack {
                 Spacer()
-                Text("Hard Mode").font(Font.custom("asphyxiate", size: 30)).foregroundColor(.yellow)
+                Text("Medium Mode").font(Font.custom("asphyxiate", size: 30)).foregroundColor(.yellow)
                     
                 Spacer()
                 LazyVGrid(columns: viewModel.columns, spacing: 8) {
@@ -28,7 +28,7 @@ struct GameView: View {
                             PlayerIndicatorView(systemImageName: viewModel.moves[index]?.indicator ?? "")
                         }
                         .onTapGesture {
-                            viewModel.processMove(in: index)
+                            viewModel.processMoveMedium(in: index)
                         }
                     }
                 }.padding([.horizontal], 8)
@@ -46,40 +46,8 @@ struct GameView: View {
     
 }
 
-enum Player {
-    case human, computer
-}
-
-struct Move {
-    let player:Player
-    let boardIndex:Int
-    var indicator: String {
-        return player == .human ? "xmark" : "circle"
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct MediumGameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
-    }
-}
-
-struct CircleView: View {
-    var proxy:GeometryProxy
-    var body: some View {
-        Circle()
-            .foregroundColor(.yellow)
-            .frame(width: proxy.size.width/3 - 10, height: proxy.size.height/5 - 15)
-            .cornerRadius(5)
-    }
-}
-
-struct PlayerIndicatorView: View {
-    var systemImageName:String
-    var body: some View {
-        Image(systemName: systemImageName)
-            .resizable()
-            .frame(width: 40, height: 40)
-            .foregroundColor(.black)
+        MediumGameView()
     }
 }
